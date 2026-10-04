@@ -23,7 +23,7 @@ spec:
           path: helm/sample-python-app
           helm:
             valueFiles:
-              - value.yaml
+              - values.yaml
               - values/{{environment}}.yaml
             parameters:
               - name: image.tag
