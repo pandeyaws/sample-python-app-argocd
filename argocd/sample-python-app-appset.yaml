@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: sample-python-app
+  namespace: argocd
+spec:
+  goTemplate: true
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  generators:
+  - list:
+      elements:
+        - environment: dev
+          targetRevision: master
+  template:
+    metadata:
+      name: sample-python-app-{{environment}}
+    spec:
+      project: apps-sample-python-app
+      sources:
+        - repoURL: https://github.com/pandeyaws/sample-python-app.git
+          targetRevision: .{{targetRevision}}
+          path: helm/sample-python-app
+          helm:
+            valueFiles:
+              - value.yaml
+              - values/{{environment}}.yaml
+            parameters:
+              - name: image.tag
+                value: '{{targetRevision}}'
+        
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{environment}}-sample-python-app'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          
