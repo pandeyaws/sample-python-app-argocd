@@ -14,24 +14,24 @@ spec:
           targetRevision: v0.0.7
   template:
     metadata:
-      name: sample-python-app-{{environment}}
+      name: sample-python-app-{{ .environment }}
     spec:
       project: apps-sample-python-app
       sources:
         - repoURL: https://github.com/pandeyaws/sample-python-app.git
-          targetRevision: .{{targetRevision}}
+          targetRevision: '{{ .targetRevision }}'
           path: helm/sample-python-app
           helm:
             valueFiles:
               - values.yaml
-              - values/{{environment}}.yaml
+              - values/{{ .environment }}.yaml
             parameters:
               - name: image.tag
-                value: '{{targetRevision}}'
+                value: '{{ .targetRevision }}'
         
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{environment}}-sample-python-app'
+        namespace: '{{ .environment }}-sample-python-app'
       syncPolicy:
         automated:
           prune: true
