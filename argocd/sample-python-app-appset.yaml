@@ -11,7 +11,7 @@ spec:
   - list:
       elements:
         - environment: dev
-          targetRevision: v0.0.26
+          targetRevision: v0.0.27
   template:
     metadata:
       name: sample-python-app-{{ .environment }}
