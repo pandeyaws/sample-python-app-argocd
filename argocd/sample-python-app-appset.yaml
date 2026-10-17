@@ -14,7 +14,7 @@ spec:
             targetRevision: v0.0.48
             name: in-cluster  
           - environment: prd
-            targetRevision: v0.0.47
+            targetRevision: v0.0.48
             name: aks-cluster-dev-eus-02
   template:
     metadata:
