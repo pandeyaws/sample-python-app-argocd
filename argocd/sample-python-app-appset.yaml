@@ -10,8 +10,12 @@ spec:
   generators:
   - list:
       elements:
-        - environment: dev
-          targetRevision: v0.0.45
+          - environment: dev
+            targetRevision: v0.0.45
+            name: in-cluster  
+          - environment: prd
+            targetRevision: v0.0.45
+            name: aks-cluster-dev-eus-02
   template:
     metadata:
       name: sample-python-app-{{ .environment }}
