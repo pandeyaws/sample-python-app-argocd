@@ -11,12 +11,7 @@ spec:
   - list:
       elements:
         - environment: dev
-          targetRevision: v0.0.18
-          name: in-cluster
-        - environment: prd
-          targetRevision: v0.0.18
-          name: aks-cluster-dev-eus-02
-
+          targetRevision: v0.0.45
   template:
     metadata:
       name: sample-python-app-{{ .environment }}
