@@ -35,7 +35,7 @@ spec:
         
       destination:
         name: '{{ .name }}'
-        namespace: '{{ .environment }}-sample-python-app'
+        namespace: 'sample-python-app-{{ .environment }}'
       syncPolicy:
         automated:
           prune: true
