@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: sample-python-app
+  name: apps-sample-python-app
   namespace: argocd
 spec:
   goTemplate: true
@@ -18,7 +18,7 @@ spec:
             cluster: aks-cluster-dev-eus-02
   template:
     metadata:
-      name: sample-python-app-{{ .environment }}
+      name: apps-sample-python-app-{{ .environment }}
     spec:
       project: apps-sample-python-app
       sources:
