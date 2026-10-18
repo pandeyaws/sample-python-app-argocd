@@ -11,7 +11,7 @@ spec:
   - list:
       elements:
           - environment: dev
-            targetRevision: v0.0.52
+            targetRevision: v0.0.53
             cluster: in-cluster
           - environment: prd
             targetRevision: v0.0.52
