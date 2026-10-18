@@ -18,7 +18,7 @@ spec:
             cluster: aks-cluster-dev-eus-02
   template:
     metadata:
-      name: apps-sample-python-app-{{ .environment }}
+      name: sample-python-app-{{ .environment }}
     spec:
       project: apps-sample-python-app
       sources:
