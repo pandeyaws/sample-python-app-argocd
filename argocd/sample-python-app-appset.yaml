@@ -31,8 +31,7 @@ spec:
               - values/{{ .environment }}.yaml
             parameters:
               - name: image.tag
-                value: '{{ .targetRevision }}'
-        
+                value: '{{ .targetRevision }}'        
       destination:
         name: '{{ .name }}'
         namespace: 'sample-python-app-{{ .environment }}'
