@@ -37,9 +37,9 @@ spec:
         namespace: 'sample-python-app-{{ .environment }}'
       syncPolicy:
         automated:
-          prune: true
+          prune: false
           selfHeal: true
-          
+
         syncOptions:
           - CreateNamespace=true
           - serversideApply=true
