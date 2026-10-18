@@ -12,10 +12,10 @@ spec:
       elements:
           - environment: dev
             targetRevision: v0.0.47
-            server: https://kubernetes.default.svc
+            cluster: in-cluster
           - environment: prd
             targetRevision: v0.0.47
-            server: https://scf-aks-dev-mms8s86a.hcp.eastus.azmk8s.io:443
+            cluster: aks-cluster-dev-eus-02
   template:
     metadata:
       name: sample-python-app-{{ .environment }}
@@ -34,7 +34,7 @@ spec:
                 value: '{{ .targetRevision }}'
         
       destination:
-        server: '{{ .server }}'
+        cluster: '{{ .cluster }}'
         namespace: '{{ .environment }}-sample-python-app'
       syncPolicy:
         automated:
