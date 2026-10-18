@@ -12,10 +12,10 @@ spec:
       elements:
           - environment: dev
             targetRevision: v0.0.47
-            cluster: in-cluster
+            name: in-cluster
           - environment: prd
             targetRevision: v0.0.47
-            cluster: aks-cluster-dev-eus-02
+            name: aks-cluster-dev-eus-02
   template:
     metadata:
       name: sample-python-app-{{ .environment }}
@@ -34,7 +34,7 @@ spec:
                 value: '{{ .targetRevision }}'
         
       destination:
-        cluster: '{{ .cluster }}'
+        name: '{{ .name }}'
         namespace: '{{ .environment }}-sample-python-app'
       syncPolicy:
         automated:
